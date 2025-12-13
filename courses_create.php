@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -116,11 +113,14 @@
 </style>
 
 <body>
-
+    <?php 
+    include "header.php";
+    ?>
+    
     <div class="container">
         <h1>Ajouter un Cours</h1>
-        
-        
+
+
         <form class="course-form" method="POST" action="courses_list.php">
             <label for="title">Titre du cours</label>
             <input type="text" name="title" id="title" placeholder="Ex: Introduction à Python">
@@ -139,7 +139,6 @@
         </form>
 
 
-
         <h2>Cours enregistrés</h2>
         <div class="course-list">
             <div class="course-card">
@@ -149,7 +148,9 @@
             </div>
         </div>
     </div>
-
+    <?php
+    include "footer.php";
+    ?>
 </body>
 
 </html>

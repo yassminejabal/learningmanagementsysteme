@@ -5,7 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
+<style>
+    .courses {
+        margin-top: 30px;
+    }
+
+    .course-card {
+        background: #ffffff;
+        border-left: 5px solid #3498db;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-card h3 {
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    .course-card p {
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .level {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    .beginner {
+        background-color: #2ecc71;
+    }
+
+    .intermediate {
+        background-color: #f1c40f;
+        color: #000;
+    }
+
+    .advanced {
+        background-color: #e74c3c;
+    }
+
+    .course-card small {
+        display: block;
+        margin-top: 8px;
+        color: #888;
+    }
+</style>
 
 <body>
     <?php
@@ -21,93 +74,80 @@
     }
 
     ?>
+    <?php 
+    include "header.php";
+    ?>
+
     <?php
+    if (isset($_POST['submit'])) {
+    }
 
-        // print_r($_POST);
-
-        if (isset($_POST['submit'])) {
-
-            
-        }
-
-        $localhost = 'localhost';
-        $pasword = '';
-        $root = 'root';
-        $db = 'cousrs';
-    $connction = mysqli_connect($localhost,$root,$pasword,$db);
+    $localhost = 'localhost';
+    $pasword = '';
+    $root = 'root';
+    $db = 'cousrs';
+    $connction = mysqli_connect($localhost, $root, $pasword, $db);
     if ($connction->connect_error) {
         echo 'non';
-        
-    }
-    else {
+    } else {
         echo 'connecte';
     }
-        ?>
-        
-        <?php
-        if (isset($_POST['submit'])) {
-            if (empty($_POST['title'])) {
-                echo "title is required";
-                return;
-            }
-            if (empty($_POST['description'])) {
-                echo "description is required";
-                return;
-            }
-            if (empty($_POST['level'])) {
-                echo "level is required";
-                return;
-            }
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            
-            if ($_POST['level']=='Débutant') {
-
-               $_POST['level'] = 1;
-            }
-            if ($_POST['level']=='Intermédiaire') {
-                $_POST['level'] = 2;
-            }
-            if ($_POST['level'] == 'Avancé') {
-            $_POST['level'] = 3;
-}
-            $level = $_POST['level'];
-            $sql = "INSERT INTO courses (title,description,level) VALUES('$title','$description','$level')";
-             $connction->query($sql);
-        }
-        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ?>
 
     <?php
-    $sqll = "SELECT  title, description, level, created_at FROM courses";
-    $mohmed = mysqli_query($connction, $sqll);
+    if (isset($_POST['submit'])) {
+        if (empty($_POST['title'])) {
+            echo "title is required";
+            return;
+        }
+        if (empty($_POST['description'])) {
+            echo "description is required";
+            return;
+        }
+        if (empty($_POST['level'])) {
+            echo "level is required";
+            return;
+        }
+        $title = $_POST['title'];
+        $description = $_POST['description'];
 
-    while ($raw = mysqli_fetch_assoc($mohmed)) {
-        // echo "title: $raw[title]  description :$raw[description]  level: $raw[level]  created_at:$raw[created_at] <br>";
+        if ($_POST['level'] == 'Débutant') {
+
+            $_POST['level'] = 1;
+        }
+        if ($_POST['level'] == 'Intermédiaire') {
+            $_POST['level'] = 2;
+        }
+        if ($_POST['level'] == 'Avancé') {
+            $_POST['level'] = 3;
+        }
+        $level = $_POST['level'];
+        $sql = "INSERT INTO courses (title,description,level) VALUES('$title','$description','$level')";
+        $connction->query($sql);
+    }
     ?>
-    <div class="course-card">
-        <h3><?= $raw['title'] ?>></h3>
-        <p><?= $raw['description'] ?></p>
 
+    <div class="courses">
+        <?php
+        $sqll = "SELECT  id,title, description, level, created_at FROM courses";
+        $sqliu = mysqli_query($connction, $sqll);
+
+        while ($raw = mysqli_fetch_assoc($sqliu)) {
+            
+        ?>
+    <a href="courses_delete.php <?php $raw['id'] ?>"  class="btn delete">delete</a>
+    <a href="courses_edit.php" <?php $raw['id'] ?> class="btn edit">Edit</a>
+            <div class="course-card">
+                <h3><?= $raw['title'] ?></h3>
+                <p><?= $raw['description'] ?></p>
+                <span class="level"><?= $raw['level'] ?>></span>
+                <small><?= $raw['created_at'] ?></small>
+            </div>
+        <?php } ?>
     </div>
-
+    <?php
+    include "footer.php";
+    ?>
 </body>
 
 </html>
