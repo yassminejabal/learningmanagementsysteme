@@ -8,6 +8,62 @@
 
 </head>
 <style>
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 5px;
+    transition: 0.3s;
+}
+
+.btn.delete {
+    background-color: #e74c3c; 
+}
+
+.btn.delete:hover {
+    background-color: #c0392b;
+}
+
+
+.btn.edit {
+    background-color: #3498db;
+}
+
+.btn.edit:hover {
+    background-color: #2980b9;
+}
+
+
+.course-card {
+    background: #fafafa;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.course-card .btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.course-card .btn.delete {
+    right: 15px;
+}
+
+.course-card .btn.edit {
+    right: 80px;
+}
+
     .courses {
         margin-top: 30px;
     }
@@ -135,8 +191,8 @@
         while ($raw = mysqli_fetch_assoc($sqliu)) {
             
         ?>
-    <a href="courses_delete.php <?php $raw['id'] ?>"  class="btn delete">delete</a>
-    <a href="courses_edit.php" <?php $raw['id'] ?> class="btn edit">Edit</a>
+    <a href="courses_delete.php?id=<?php echo $raw['id']?>"  class="btn delete">delete</a>
+    <a href="courses_edit.php?id=<?php echo $raw['id']?>" class="btn edit">Edit</a>
             <div class="course-card">
                 <h3><?= $raw['title'] ?></h3>
                 <p><?= $raw['description'] ?></p>
