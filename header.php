@@ -59,6 +59,7 @@
                 <li><a href="courses_list.php">Cours</a></li>
                 <li><a href="courses_create.php">Ajouter Cours</a></li>
                 <li><a href="contact.php">Contact</a></li>
+                <li><a href="Inscription.php">Inscription</a></li>
             </ul>
         </nav>
     </div>

@@ -17,9 +17,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $created_at = $raw['created_at'];
     } else {
         echo 'il ya plusieur id';
-    }
+    }  
 }
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $level = trim($_POST['level']);
@@ -32,21 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     }
 }
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -57,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    /* Reset simple */
     * {
         margin: 0;
         padding: 0;
@@ -167,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     ?>
     
     <div class="container">
-        <h1>modifier un cours</h1>
+        <h1>modifier un</h1>
 
 
         <form class="course-form" method="POST" action="courses_list.php">
@@ -186,8 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
             <button type="submit" name="submit">Enregistrer</button>
         </form>
-
-
         <h2>Cours enregistrés</h2>
         <div class="course-list">
             <div class="course-card">

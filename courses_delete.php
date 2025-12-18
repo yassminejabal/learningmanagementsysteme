@@ -9,9 +9,7 @@ else {
     echo "il y'a id";
 }
     $id = $_GET['id'];
-    $sql = "DELETE FROM courses where id = $id";
-    if(mysqli_query($connction, $sql)){
-   header("Location: courses_List.php");
-    exit;
-}
+    $sql = "DELETE FROM courses where id = $id" ;
+    mysqli_query($connction, $sql);
+    header("Location:courses_list.php");
 ?>

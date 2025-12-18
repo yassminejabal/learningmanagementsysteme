@@ -1,7 +1,5 @@
-<?php
-
-require_once "config.php"
+<?php 
+session_start();
+echo $_SESSION['email'];
 
 ?>
-
-<h1>test</h1>
