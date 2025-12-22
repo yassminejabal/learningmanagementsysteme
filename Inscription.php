@@ -7,72 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
-    <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    <link rel="stylesheet" href="css.css">
 
-body {
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-form {
-    background: #fff;
-    padding: 25px 30px;
-    width: 350px;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-label {
-    font-weight: bold;
-    color: #555;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    font-size: 14px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background: #667eea;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #556cd6;
-}
-
-    </style>
 </head>
 
 <body>
@@ -90,7 +26,7 @@ button:hover {
 <body>
 
 <div class="container">
-    <form method="POST" class="form-card" id="registerForm">
+    <form method="POST" class="form-card" action="virifierinscription.php" id="registerForm">
         
         
         <h2>Créer un compte</h2>
@@ -123,21 +59,7 @@ button:hover {
         </p>
     </form>
 </div>
-<?php 
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email= $_POST['email'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    if (empty($name||$email||$password)) {
-        echo "input et requirde";
-    }
-    $sql = " INSERT INTO users (name,email,password) VALUES('$name','$email','$password')";
-    $f = mysqli_query($connction,$sql);
-    echo $f;
 
-}
-?>
 
 </body>
 </html>

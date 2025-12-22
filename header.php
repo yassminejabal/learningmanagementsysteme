@@ -4,52 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+
 </head>
 <style>
-    /* Header */
-.header {
-    background-color: #3498db;
-    padding: 15px 0;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-.header .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header .logo h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.header .nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.header .nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.header .nav ul li a:hover {
-    color: #f1c40f;
-}
-
+ 
 </style>
 <body>
     
 <header class="header">
-    <div class="container">
+    <div class="containerR">
         <div class="logo">
             <h1>MonSite</h1>
         </div>
@@ -60,6 +24,8 @@
                 <li><a href="courses_create.php">Ajouter Cours</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="Inscription.php">Inscription</a></li>
+                <li><a href="deconection.php">deconectiom</a></li>
+
             </ul>
         </nav>
     </div>
